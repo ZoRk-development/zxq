@@ -269,7 +269,7 @@ $(function() {
       }
     });
 
-    if (window.deviceMotionEvent != undefined) {
+    if (window.DeviceMotionEvent != undefined) {
       var smooth_c = 0.4;
       window.addEventListener("devicemotion", function (e) {
         var xVal = e.accelerationIncludingGravity.x * 100;
