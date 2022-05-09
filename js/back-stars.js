@@ -270,10 +270,10 @@ $(function() {
     });
 
     if (window.deviceMotionEvent != undefined) {
-      smooth_c = 0.4;
+      var smooth_c = 0.4;
       window.addEventListener("deviceMotion", function (e) {
-        xVal = event.accelerationIncludingGravity.x * 10;
-        yVal = event.accelerationIncludingGravity.y * 10;
+        var xVal = event.accelerationIncludingGravity.x * 10;
+        var yVal = event.accelerationIncludingGravity.y * 10;
         if (yVal < 0) {
           xVal = -xVal - 180;
         }
