@@ -269,6 +269,19 @@ $(function() {
       }
     });
 
+    if (window.deviceMotionEvent != undefined) {
+      smooth_c = 0.4;
+      window.addEventListener("deviceMotion", function (e) {
+        xVal = event.accelerationIncludingGravity.x * 10;
+        yVal = event.accelerationIncludingGravity.y * 10;
+        if (yVal < 0) {
+          xVal = -xVal - 180;
+        }
+        mouseX = xVal*10*smooth_c + mouseX*(1 - smooth_c);
+        mouseY = yVal*10*smooth_c + mouseY*(1 - smooth_c);
+      }, true);
+    }
+
     window.addWheelListener(window, function(event) {
       var delta = (event.deltaY < 0 ? -1 : 1);
 
