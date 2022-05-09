@@ -253,7 +253,7 @@ $(function() {
       mouseY = event.clientY - windowHalfY;
     });
 
-    $(document).on('touchstart', function(event) {
+    $("body").on('touchstart', function(event) {
       if (event.touches.length === 1) {
         event.preventDefault();
         mouseX = event.touches[0].pageX - windowHalfX;
@@ -261,7 +261,7 @@ $(function() {
       }
     });
 
-    $(document).on('touchmove', function(event) {
+    $("body").on('touchmove', function(event) {
       if (event.touches.length === 1) {
         event.preventDefault();
         mouseX = event.touches[0].pageX - windowHalfX;
@@ -272,13 +272,11 @@ $(function() {
     if (window.deviceMotionEvent != undefined) {
       var smooth_c = 0.4;
       window.addEventListener("devicemotion", function (e) {
-        var xVal = e.accelerationIncludingGravity.x * 10;
-        var yVal = e.accelerationIncludingGravity.y * 10;
-        if (yVal < 0) {
-          xVal = -xVal - 180;
-        }
-        mouseX = xVal*10*smooth_c + mouseX*(1 - smooth_c);
-        mouseY = yVal*10*smooth_c + mouseY*(1 - smooth_c);
+        var xVal = e.accelerationIncludingGravity.x * 100;
+        var yVal = e.accelerationIncludingGravity.y * 100;
+
+        mouseX = xVal;
+        mouseY = yVal;
       }, true);
     }
 
