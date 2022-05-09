@@ -272,8 +272,8 @@ $(function() {
     if (window.deviceMotionEvent != undefined) {
       var smooth_c = 0.4;
       window.addEventListener("deviceMotion", function (e) {
-        var xVal = event.accelerationIncludingGravity.x * 10;
-        var yVal = event.accelerationIncludingGravity.y * 10;
+        var xVal = e.accelerationIncludingGravity.x * 10;
+        var yVal = e.accelerationIncludingGravity.y * 10;
         if (yVal < 0) {
           xVal = -xVal - 180;
         }
